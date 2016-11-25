@@ -7,16 +7,54 @@ var config = require('./config');
 program
     .version('0.0.1')
     .usage('[options] <files ...>')
-    .option('-r, --randomize', 'Randomize files')
-    .option('-c, --clean', 'Unrandomize files')
-    .parse(process.argv);
+
+program
+    .command('init [path]')
+    .description('Create Microlink file structure on selected path')
+    .option('-d, --discs <n>', 'Number of discs to create', parseInt)
+    .action(function(path, options){
+        path = path || '.';
+        var discCount = 0;
+        var i;
+
+        if (!options.discs || options.discs >=  config.DISC_NAMES.length) {
+            options.discs = config.DISC_NAMES.length;
+        }
+
+        for (i = 0; i < options.discs; i++) {
+            var discPath = createPath(path, config.DISC_NAMES[i]);
+            
+            if(!fs.existsSync(discPath)) {
+                fs.mkdirSync(discPath);
+                discCount++;
+            }
+        }
+
+        if (discCount) {
+            console.log(discCount + " Micrlink drives created");
+        } else {
+            console.log("Microlink file structure already exist");
+        }
+    })
+
+program
+    .command('mix [path]')    
+    .description('Mix supported music files in Microlink folders')
+    .option('-r, --revert', 'Revert mixed files to original order')
+    .action(function(path, options){
+
+    });
+
+program.parse(process.argv);
 
 if (!program.args.length) {
     program.help();
 } else {
-    console.log('Keywords: ' + program.args);
-    scanPath(program.args[0]);
+    // console.log('Keywords: ' + program.args);
+    // scanPath(program.args[0]);
 }
+
+//=================================================
 
 function scanPath(path) {
     return new Promise(function(resolve, reject) {
@@ -113,5 +151,14 @@ function scanDisc(discPath, callback) {
                 });
         });
     })
+}
 
+
+function createPath(){
+    var path = '';
+    _u.forEach(arguments, function(arg){
+        arg = arg.replace(/\/$/, '');
+        path = path + '/' + arg;
+    })
+    return path.replace(/^\//, '');;
 }
