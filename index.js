@@ -22,7 +22,7 @@ program
 
         for (i = 0; i < options.discs; i++) {
             var discPath = createPath(path, config.DISC_NAMES[i]);
-            
+
             if(!fs.existsSync(discPath)) {
                 fs.mkdirSync(discPath);
                 discCount++;
@@ -37,10 +37,10 @@ program
     })
 
 program
-    .command('mix [path]')    
-    .description('Mix supported music files in Microlink folders')
-    .option('-r, --revert', 'Revert mixed files to original')
-    .option('-d, --disc <n>', 'Number of the disc which will be mixed', parseInt)
+    .command('shuffle [path]')
+    .description('Shuffle supported music files in Microlink folders')
+    .option('-r, --revert', 'Revert shuffled files to original')
+    .option('-d, --disc <n>', 'Number of the disc which will be shuffled', parseInt)
     .action(function(path, options){
         //TODO Implement Mix only one CD
 
@@ -80,7 +80,7 @@ if (!program.args.length) {
 
 function scanPath(path) {
     var fileStructure = [];
-   
+
     _u.forEach(fs.readdirSync(path), function(dir){
         if (isValidDisc(dir)) {
             var discPath = createPath(path, dir);
@@ -112,13 +112,13 @@ function saveChanges(discs) {
 
 function renameFiles(disc) {
     var i;
-    
+
     if(disc.files.length !== disc.original.files.length) {
         throw new Error("Old files and new files lists are different!");
     }
-    
+
     for(i = 0; i < disc.files.length; i++){
-        var oldPath = createPath(disc.path, disc.original.files[i]), 
+        var oldPath = createPath(disc.path, disc.original.files[i]),
             newPath = createPath(disc.path, disc.files[i]);
         fs.renameSync(oldPath, newPath);
     };

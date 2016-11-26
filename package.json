@@ -1,16 +1,17 @@
 {
   "name": "microlink-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Unofficial application for Microlink CD changer emulator.",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "preferGlobal": true,
   "bin": {
-    "microlink": "./index.js"
+    "microlink": "index.js"
   },
-  "author": "itesic <ilija.tesic@gmail.com>",
+  "author": "Ilija Tešić <ilija.tesic@gmail.com> (http://itesic.me)",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
     "url": "https://github.com/ITesic/microlink-cli/issues"
   },
   "homepage": "https://github.com/ITesic/microlink-cli",
-  
+
   "dependencies": {
     "commander": "^2.9.0",
     "es6-promise": "^4.0.5",
