@@ -1,6 +1,6 @@
 {
   "name": "microlink-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Unofficial application for Microlink CD changer emulator (microlink.rs).",
   "main": "index.js",
   "scripts": {
