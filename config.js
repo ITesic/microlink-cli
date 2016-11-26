@@ -11,7 +11,7 @@ module.exports = {
         'CD09',
         'CD10'
     ],
-    SUPPORTED_FILE_EXTENSIONS: [
+    SUPPORTED_FORMATS: [
       'mp3',
       'vma',
       'asf',
