@@ -6,7 +6,8 @@
     var fs = require('fs');
     var _u = require('underscore');
     var program = require('commander');
-    var config = require('./config');
+    var microlink = require('./microlink/index');
+    var config = microlink.config;
 
     program
         .version('0.0.1')
@@ -17,7 +18,7 @@
         .description('Create Microlink file structure on selected path')
         .option('-n, --discs <n>', 'Number of discs to create', parseInt)
         .action(function(path, options) {
-            path = path || '.';
+            path = path || config.DEFAULT_PATH;
             var discCount = 0;
             var i;
 
@@ -45,7 +46,26 @@
         .command('info [path]')
         .description('Show information about Microlink drive')
         .action(function(path, options) {
-            console.log('Microlink drive info');
+            path = path || config.DEFAULT_PATH;
+            var discs = scanPath(path);
+
+            console.log('\n');
+
+            if (!discs.length) {
+              console.log("It is not Microlink drive in. \nType 'init [path]' to initialize Microlink drive.");
+              return;
+            }
+
+            console.log("Microlink drive detected. " + discs.length + " discs found. \n\n")
+
+            _u.forEach(discs, function(disc){
+              console.log('== ' + disc.name + ' ====\n');
+              console.log('   Songs: ' + microlink.stats.countFiles(disc) + '\n');
+              console.log('   Invisible: ' + microlink.stats.countInvisibleFiles(disc) + '\n');
+              // console.log('============================ \n');
+            });
+
+            // console.log('Microlink drive info');
         });
 
     program
@@ -54,6 +74,7 @@
         .option('-r, --revert', 'Revert shuffled files to original')
         .option('-d, --disc <n>', 'Number of the disc which will be shuffled', parseInt)
         .action(function(path, options) {
+            path = path || config.DEFAULT_PATH;
             //TODO Implement Mix only one CD
 
             var discs = scanPath(path);

@@ -1,0 +1,125 @@
+st login: Thu Nov 17 21:27:13 on ttys007
+/Users/itesic/.zshenv:2: command not found: rbenv
+/Users/itesic/.zshenv:4: command not found: rbenv
+cd %                                                                                                                                                                                 ➜  klika cd spiro-chrome
+➜  spiro-chrome git:(release-0.9.23) ls
+Gruntfile.js     app              docs             node_modules     test
+Gruntfile.js.bak bower.json       grunt            package
+README.md        dist             karma.conf.js    package.json
+➜  spiro-chrome git:(release-0.9.23) git status
+On branch release-0.9.23
+nothing to commit, working directory clean
+➜  spiro-chrome git:(release-0.9.23) git status
+On branch release-0.9.23
+nothing to commit, working directory clean
+➜  spiro-chrome git:(release-0.9.23) git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+➜  spiro-chrome git:(master) git merge --no-ff release-0.9.23
+Removing npm-debug.log
+Merge made by the 'recursive' strategy.
+ app/css/components.scss                                  |   2 +
+ app/css/popup.css                                        |   6 +
+ app/css/spiro-bootstrap-theme.css                        | 581 ++++++++++++++++++++++++
+ app/env/alpha/config.json                                |   2 +-
+ app/env/alpha/manifest.json                              |   2 +-
+ app/env/beta/manifest.json                               |   2 +-
+ app/env/dev/manifest.json                                |   2 +-
+ app/env/ngrok/manifest.json                              |   2 +-
+ app/env/staging/config.json                              |   4 +-
+ app/env/staging/manifest.json                            |   2 +-
+ app/popup.html                                           |   1 +
+ app/scripts/background/main/background.ctrl.js           |  90 ++--
+ .../base/last-interaction/base-last-interaction.js       |   1 +
+ .../base/last-interaction/last-interaction-email.js      |   2 +-
+ app/scripts/common/alert/alert.service.js                |   6 +
+ app/scripts/common/app/app.js                            |  26 +-
+ app/scripts/common/auth/auth.ctrl.js                     |  23 +-
+ app/scripts/common/auth/auth.module.js                   |   9 +-
+ app/scripts/common/auth/auth.service.js                  |  24 +-
+ app/scripts/common/auth/auth.states.js                   |  23 +-
+ app/scripts/common/auth/templates/auth.html              |  32 +-
+ app/scripts/common/auth/templates/auth.scss              |   0
+ app/scripts/common/engine/engine.service.js              |   2 +-
+ app/scripts/common/mixpanel/mixpanel.service.js          |   3 +-
+ app/scripts/common/reminder/reminder-form.directive.js   |  16 +-
+ app/scripts/common/reminder/reminder.js                  |   2 +-
+ app/scripts/common/subscription/subscription.service.js  |   2 +-
+ app/scripts/common/user/user-session.js                  |   6 +-
+ app/scripts/common/user/user.js                          | 571 +++++++++++------------
+ app/scripts/common/user/user.service.js                  |  12 +-
+ app/scripts/helpers/date-helper.js                       |   1 +
+ app/scripts/helpers/url-helper.js                        |  16 +-
+ app/scripts/popup/actions/base-action.js                 | 331 +++++++-------
+ .../popup/actions/connect-email/connect-email-action.js  | 116 ++---
+ .../action/log-interaction/log-interaction-command.js    |   2 +-
+ .../commands/connect-email/connect-email-command.js      |   6 +-
+ .../checkbox-grid/templates/checkbox-grid.html           |   3 +-
+ .../popup/components/main-menu/templates/main-menu.html  |   2 +-
+ .../popup/components/options-modal/options-modal.js      |   3 +-
+ .../password-input-modal/password-input-modal.js         |  68 +++
+ .../templates/password-input-modal.html                  |  24 +
+ .../templates/password-input-modal.scss                  |  11 +
+ app/scripts/popup/main/main.ctrl.js                      |  14 +-
+ .../update-close-date/update-close-date.command.js       |   2 +-
+ .../update-opportunity-amount.command.js                 |   2 +-
+ .../update-opportunity-stage.command.js                  |   2 +-
+ app/scripts/popup/opportunity/opportunity-list.ctrl.js   |   2 +-
+ app/scripts/popup/opportunity/opportunity.js             |  11 +-
+ app/scripts/popup/search/templates/search.html           |   2 +-
+ app/scripts/popup/settings/settings.ctrl.js              | 322 ++++++-------
+
+
+  1 root = true
+  2
+  3 [*]
+  4 indent_style = space
+  5 indent_size = 2
+  6 end_of_line = lf
+  7 charset = utf-8
+  8 trim_trailing_whitespace = true
+  9 insert_final_newline = true
+ 10
+ 11 [*.md]
+ 12 trim_trailing_whitespace = false
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
