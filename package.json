@@ -1,6 +1,6 @@
 {
   "name": "microlink-cli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Unofficial application for Microlink CD changer emulator.",
   "keywords": [
     "microlink"
@@ -29,7 +29,6 @@
   "homepage": "https://github.com/ITesic/microlink-cli",
   "dependencies": {
     "commander": "^2.9.0",
-    "es6-promise": "^4.0.5",
     "fs": "0.0.1-security",
     "node-dir": "^0.1.16",
     "underscore": "^1.8.3"

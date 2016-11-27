@@ -32,7 +32,7 @@ Parameter `-n <int>` sets number of drives that will be created, in range 1..10.
 
 Show info about Microlink drive and it's content.
 
-### mix
+### shuffle
 
 `microlink shuffle [path]`
 
